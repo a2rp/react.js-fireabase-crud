@@ -1,0 +1,22 @@
+.container {
+    height: 100vh;
+    overflow: hidden;
+
+    .header {
+        height: 60px;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+
+        .appName {
+            color: #fff;
+        }
+    }
+
+    .main {
+        height: calc(100% - 60px);
+        overflow: scroll;
+        padding: 15px;
+    }
+}

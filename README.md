@@ -1,3 +1,7 @@
+[![Watch the video](https://img.youtube.com/vi/EDd0rvWZ3GI/maxresdefault.jpg)](https://youtu.be/EDd0rvWZ3GI)
+
+<!-- https://youtu.be/EDd0rvWZ3GI -->
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
