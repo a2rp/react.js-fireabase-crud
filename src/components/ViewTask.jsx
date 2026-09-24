@@ -1,58 +1,10 @@
-import { Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
-const ViewTask = (props) => {
-    const [open, setOpen] = useState(false);
-
-    useEffect(() => {
-        if (props.showViewTaskDialog === true) {
-            setOpen(true);
-        }
-    }, [props.showViewTaskDialog]);
-
-    const handleClose = () => {
-        setOpen(false);
-        props.setShowViewTaskDialog(false);
-    };
-
-    return (
-        <>
-            <Dialog
-                fullWidth
-                open={open}
-                onClose={handleClose}
-            >
-                <DialogTitle>View task</DialogTitle>
-                <DialogContent>
-                    <TextField
-                        sx={{ marginTop: "15px" }}
-                        size="small"
-                        autoFocus
-                        required
-                        label="Task name"
-                        fullWidth
-                        name="taskName"
-                        value={props.taskToBeViewed.data?.taskName}
-                    />
-                    <TextField
-                        sx={{ marginTop: "15px" }}
-                        size="small"
-                        autoFocus
-                        required
-                        label="Task description"
-                        fullWidth
-                        name="taskDescription"
-                        value={props.taskToBeViewed.data?.taskDescription}
-                        multiline={true}
-                        rows={5}
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button color="error" variant="outlined" onClick={handleClose}>Cancel</Button>
-                </DialogActions>
-            </Dialog>
-        </>
-    )
-}
-
-export default ViewTask
+const ViewTask = ({ showViewTaskDialog, setShowViewTaskDialog, taskToBeViewed }) => {
+  const [open, setOpen] = useState(false);
+  useEffect(() => setOpen(showViewTaskDialog), [showViewTaskDialog]);
+  const handleClose = () => { setOpen(false); setShowViewTaskDialog(false); };
+  return <Dialog fullWidth open={open} onClose={handleClose}><DialogTitle>View task</DialogTitle><DialogContent><TextField sx={{ marginTop: "15px" }} size="small" label="Task name" fullWidth value={taskToBeViewed.data?.taskName || ""} InputProps={{ readOnly: true }} /><TextField sx={{ marginTop: "15px" }} size="small" label="Task description" fullWidth multiline rows={5} value={taskToBeViewed.data?.taskDescription || ""} InputProps={{ readOnly: true }} /></DialogContent><DialogActions><Button variant="outlined" onClick={handleClose}>Close</Button></DialogActions></Dialog>;
+};
+export default ViewTask;
