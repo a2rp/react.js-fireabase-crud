@@ -26,6 +26,13 @@ REACT_APP_MESSAGING_SENDER_ID=your_sender_id
 REACT_APP_APP_ID=your_app_id
 ```
 
+## Firestore access and security
+
+This demo has no sign-in and every configured client reads and writes the same `tasks` collection. Set Firestore Security Rules that restrict access before connecting real data. Do not use public read/write rules. `REACT_APP_*` values are included in the client build; Firebase web API keys identify the project, while Security Rules control access. Never put service-account credentials in this file.
+
+- [Firestore security overview](https://firebase.google.com/docs/firestore/security/overview)
+- [Firebase API key guidance](https://firebase.google.com/docs/projects/api-keys)
+
 ## Run locally
 
 ```bash

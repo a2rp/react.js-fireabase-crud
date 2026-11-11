@@ -10,7 +10,7 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID,
 };
 
-const hasFirebaseConfig = Object.values(firebaseConfig).every(Boolean);
+const hasFirebaseConfig = Object.values(firebaseConfig).every((value) => typeof value === "string" && value.trim() && !value.startsWith("your_"));
 const app = hasFirebaseConfig ? initializeApp(firebaseConfig) : null;
 const db = app ? getFirestore(app) : null;
 
